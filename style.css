@@ -129,11 +129,11 @@ p{margin:0 0 1rem}
 .hero__art-label{font-family:var(--font-head);font-weight:700;font-size:1.3rem;position:relative}
 
 /* ---------- stats ---------- */
-.stats{display:grid;gap:1.5rem;grid-template-columns:repeat(2,1fr);text-align:center}
-@media (min-width:640px){.stats{grid-template-columns:repeat(4,1fr)}}
-.stat__num{font-family:var(--font-head);font-weight:700;font-size:clamp(1.9rem,4.5vw,2.6rem);color:var(--teal)}
+.stats{display:grid;gap:1.5rem;grid-template-columns:repeat(2,minmax(0,1fr));text-align:center}
+@media (min-width:640px){.stats{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.stat__num{display:block;font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--font-head);font-weight:700;font-size:clamp(1.9rem,4.5vw,2.6rem);color:var(--teal)}
 .section--dark .stat__num{color:var(--on-dark)}
-.stat__label{font-size:.9rem;color:var(--ink-soft)}
+.stat__label{display:block;font-size:.9rem;color:var(--ink-soft)}
 .section--dark .stat__label{color:var(--on-dark-soft)}
 
 /* ---------- cards ---------- */
