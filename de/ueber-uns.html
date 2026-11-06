@@ -5,9 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>&Uuml;ber uns — EA Heidelberg</title>
 <meta name="description" content="Wer EA Heidelberg organisiert, wie unsere wöchentlichen Treffen aussehen, und wie du mitmachen kannst.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&display=swap">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../assets/fonts/sora-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="theme-color" content="#0388a0">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="EA Heidelberg">
+<meta property="og:locale" content="de_DE">
+<meta property="og:title" content="&Uuml;ber uns — EA Heidelberg">
+<meta property="og:description" content="Wer EA Heidelberg organisiert, wie unsere wöchentlichen Treffen aussehen, und wie du mitmachen kannst.">
+<!-- og:image must become an absolute URL once the final domain is known (see README) -->
+<meta property="og:image" content="../assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -15,7 +28,7 @@
 
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="index.html">EA <span>Heidelberg</span></a>
+    <a class="brand" href="index.html"><img class="brand__mark" src="../assets/img/logo-mark.svg" alt="" width="34" height="34">EA <span>Heidelberg</span></a>
     <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Men&uuml;">&#9776;</button>
     <nav class="nav-links" data-nav-links aria-label="Hauptnavigation">
       <a href="index.html">Start</a>
@@ -34,12 +47,19 @@
 <main id="main">
 
   <section class="hero" style="padding-bottom:1rem">
-    <div class="wrap" style="max-width:40rem">
+    <div class="wrap hero__grid hero__grid--about">
+      <div>
       <span class="eyebrow">&Uuml;ber uns</span>
       <h1>Studierende, die &bdquo;Gutes tun&ldquo; ernst nehmen</h1>
       <p class="lede">EA Heidelberg ist eine Hochschulgruppe f&uuml;r alle, die mit Evidenz und
       sorgf&auml;ltigem Nachdenken bewusster etwas Positives bewirken wollen — kein Club f&uuml;r
       Leute, die schon alles wissen.</p>
+      </div>
+      <figure class="photo about__photo" data-animate>
+        <img src="../assets/img/altstadt-luftbild-800.webp" srcset="../assets/img/altstadt-luftbild-800.webp 800w, ../assets/img/altstadt-luftbild-1400.webp 1400w" sizes="(min-width:860px) 28rem, 100vw" width="800" height="556" alt="Heidelberger Altstadt und Schloss von oben">
+        <span class="photo-badge"><svg class="meta-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg>Wöchentliche Treffen &middot; Universität Heidelberg</span>
+        <figcaption class="photo-credit">Foto: <a href="https://commons.wikimedia.org/wiki/File:Heidelberg_Altstadt_Schloss_Luftbild.JPG">Schlurcher</a>, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></figcaption>
+      </figure>
     </div>
   </section>
 
@@ -93,7 +113,7 @@
       Ordnung.</p>
       <p><a class="btn btn--outline" href="kontakt.html">Erst mit jemandem reden &rarr;</a></p>
 
-      <h2>B&uuml;cher</h2>
+      <h2 class="h2-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v16"/><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"/></svg>B&uuml;cher</h2>
       <p>Wir haben eine kleine Sammlung an B&uuml;chern dar&uuml;ber, wie man noch besser
       Gutes tut, und &uuml;ber einige der dringendsten Probleme der Welt. Leih dir eins bei
       einem unserer Treffen aus.</p>
@@ -113,10 +133,13 @@
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-grid">
-      <div>
+      <div class="footer-brand">
+        <img src="../assets/img/logo-mark.svg" alt="" width="44" height="44">
+        <div>
         <strong>EA Heidelberg</strong><br>
         AWI, Bergheimer Str. 58, 69115 Heidelberg<br>
         <a href="mailto:heidelberg@effektiveraltruismus.de">heidelberg@effektiveraltruismus.de</a>
+        </div>
       </div>
       <nav aria-label="Footer">
         <a href="index.html">Start</a> &middot;
@@ -126,6 +149,7 @@
         <a href="kontakt.html">Kontakt</a>
       </nav>
     </div>
+    <p class="footer-legal"><a href="../impressum.html">Impressum &amp; Bildnachweise</a></p>
   </div>
 </footer>
 

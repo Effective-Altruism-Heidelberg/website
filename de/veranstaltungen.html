@@ -5,9 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Veranstaltungen — EA Heidelberg</title>
 <meta name="description" content="Unsere nächste Veranstaltung, was dich beim ersten Mal erwartet, und ein Rückblick auf die letzten Termine.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&display=swap">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../assets/fonts/sora-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="theme-color" content="#0388a0">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="EA Heidelberg">
+<meta property="og:locale" content="de_DE">
+<meta property="og:title" content="Veranstaltungen — EA Heidelberg">
+<meta property="og:description" content="Unsere nächste Veranstaltung, was dich beim ersten Mal erwartet, und ein Rückblick auf die letzten Termine.">
+<!-- og:image must become an absolute URL once the final domain is known (see README) -->
+<meta property="og:image" content="../assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -15,7 +28,7 @@
 
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="index.html">EA <span>Heidelberg</span></a>
+    <a class="brand" href="index.html"><img class="brand__mark" src="../assets/img/logo-mark.svg" alt="" width="34" height="34">EA <span>Heidelberg</span></a>
     <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Men&uuml;">&#9776;</button>
     <nav class="nav-links" data-nav-links aria-label="Hauptnavigation">
       <a href="index.html">Start</a>
@@ -33,7 +46,9 @@
 
 <main id="main">
 
-  <section class="hero" style="padding-bottom:1rem" id="naechste">
+  <section class="hero hero--photo">
+    <img class="hero__bg" src="../assets/img/heidelberg-night-1000.webp" srcset="../assets/img/heidelberg-night-1000.webp 1000w, ../assets/img/heidelberg-night-2000.webp 2000w" sizes="100vw" alt="Heidelberger Altstadt und Neckar in der Abenddämmerung" fetchpriority="high">
+    <span class="photo-credit">Foto: <a href="https://commons.wikimedia.org/wiki/File:Heidelberg_night.jpg">Godoi</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a></span>
     <div class="wrap" style="max-width:40rem">
       <span class="eyebrow">Veranstaltungen</span>
       <h1>Einfach vorbeikommen.</h1>
@@ -43,7 +58,7 @@
     </div>
   </section>
 
-  <section class="section" style="padding-top:0">
+  <section class="section section--after-photo">
     <div class="wrap">
       <div class="event-card is-featured" data-animate style="max-width:40rem;margin:0 auto">
         <div class="event-date">
@@ -53,8 +68,8 @@
         <div>
           <h3>Einf&uuml;hrungsvortrag</h3>
           <div class="event-meta">
-            <span>Mi, 28.10.2026 &middot; 19:00&ndash;20:30</span>
-            <span>AWI-Geb&auml;ude, Raum 01.030</span>
+            <span><svg class="meta-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v3"/><path d="M16 2v3"/><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>Mi, 28.10.2026 &middot; 19:00&ndash;20:30</span>
+            <span><svg class="meta-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>AWI-Geb&auml;ude, Raum 01.030</span>
           </div>
           <p>Ein inspirierender Abend rund um die Grundprinzipien von Effective Altruism, mit
           kostenlosen Snacks, entspannter Atmosph&auml;re und der M&ouml;glichkeit, andere
@@ -72,19 +87,19 @@
       </div>
       <div class="cards">
         <div class="card" data-animate>
-          <div class="card__icon"><svg class="icon" viewBox="0 0 24 24"><polyline points="4,13 9,18 20,6"></polyline></svg></div>
+          <div class="card__icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m16 9-5.5 5.5L8 12"/></svg></div>
           <h3>Keine Vorbereitung</h3><p>Keine Pflichtlekt&uuml;re, kein Test,
         nichts vorzubereiten. Komm, wie du bist.</p></div>
         <div class="card" data-animate style="transition-delay:.1s">
-          <div class="card__icon"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line></svg></div>
+          <div class="card__icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 17h.01"/><path d="M11.496 2c.324-.016.558.292.529.615a4 4 0 004.235 4.368.713.713 0 01.758.757 4 4 0 004.366 4.237c.323-.03.63.204.614.527a10 10 0 01-2.915 6.566A1 1 0 114.93 4.918 10 10 0 0111.496 2"/><path d="M12 12h.01"/><path d="M16 16h.01"/><path d="M16 3h.01"/><path d="M21 4h.01"/><path d="M21 8h.01"/><path d="M7 14h.01"/><path d="M9 8h.01"/></svg></div>
           <h3>Kostenlose Snacks</h3><p>Es gibt immer etwas zu essen und zu
         trinken — bring Hunger mit, kein Kleingeld.</p></div>
         <div class="card" data-animate style="transition-delay:.2s">
-          <div class="card__icon"><svg class="icon" viewBox="0 0 24 24"><circle cx="9" cy="12" r="5"></circle><circle cx="15" cy="12" r="5"></circle></svg></div>
+          <div class="card__icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg></div>
           <h3>Allein oder zu zweit</h3><p>Die meisten kennen am Anfang
         niemanden. Das ist hier v&ouml;llig normal.</p></div>
         <div class="card" data-animate style="transition-delay:.3s">
-          <div class="card__icon"><svg class="icon" viewBox="0 0 24 24"><line x1="4" y1="12" x2="20" y2="12"></line><polyline points="8,6 4,12 8,18"></polyline><polyline points="16,6 20,12 16,18"></polyline></svg></div>
+          <div class="card__icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 21H2"/><path d="M10 3H7a2 2 0 00-2 2v16"/><path d="M14 12h.01"/><path d="M19 21V5a2 2 0 00-1.675-1.974l-6.163-1.013A1 1 0 0010 3v18a1 1 0 001.124.992z"/><path d="M22 21h-3"/></svg></div>
           <h3>Keine Verpflichtung</h3><p>Komm einmal, komm jede Woche, oder
         nie wieder — wie es f&uuml;r dich passt.</p></div>
       </div>
@@ -102,7 +117,7 @@
         <div class="event-card is-past" data-animate>
           <div class="event-date"><span class="event-date__day">15</span><span class="event-date__month">Jul</span></div>
           <div><h3>EA und Politik</h3>
-          <div class="event-meta"><span>2026</span></div>
+          <div class="event-meta"><span><svg class="meta-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v3"/><path d="M16 2v3"/><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>2026</span></div>
           <p>Wie evidenzbasiertes Denken helfen kann, Demokratie und institutionelle
           Entscheidungsprozesse besser zu verstehen — mit Raum f&uuml;r spontane
           Kurzvortr&auml;ge aus dem Publikum.</p>
@@ -112,7 +127,7 @@
         <div class="event-card is-past" data-animate>
           <div class="event-date"><span class="event-date__day">1</span><span class="event-date__month">Jul</span></div>
           <div><h3>Einf&uuml;hrung in die Ethik</h3>
-          <div class="event-meta"><span>2026</span></div>
+          <div class="event-meta"><span><svg class="meta-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v3"/><path d="M16 2v3"/><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>2026</span></div>
           <p>Ein &Uuml;berblick &uuml;ber die wichtigsten ethischen Theorien und ihre
           Verbindung zum Effektiven Altruismus.</p>
           </div>
@@ -121,7 +136,7 @@
         <div class="event-card is-past" data-animate>
           <div class="event-date"><span class="event-date__day">6</span><span class="event-date__month">Mai</span></div>
           <div><h3>Globale Gesundheit — News</h3>
-          <div class="event-meta"><span>2026</span></div>
+          <div class="event-meta"><span><svg class="meta-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v3"/><path d="M16 2v3"/><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>2026</span></div>
           <p>Kurzvortr&auml;ge &uuml;ber neue Impfstoffe und Behandlungen gegen Malaria sowie
           die Folgen der USAID-K&uuml;rzungen f&uuml;r globale Gesundheitsprogramme.</p>
           </div>
@@ -130,7 +145,7 @@
         <div class="event-card is-past" data-animate>
           <div class="event-date"><span class="event-date__day">28</span><span class="event-date__month">Jan</span></div>
           <div><h3>KI-Sicherheit: Reale Risiken</h3>
-          <div class="event-meta"><span>2026 &middot; Highlight des Semesters</span></div>
+          <div class="event-meta"><span><svg class="meta-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v3"/><path d="M16 2v3"/><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>2026 &middot; Highlight des Semesters</span></div>
           <p>Vier Sprecher*innen, u.&nbsp;a. aus dem AI Safety Hub der University of Cambridge
           und dem stellvertretenden Vorsitz von PauseAI Deutschland, &uuml;ber KI-Sicherheit
           und existenzielle Risiken.</p>
@@ -140,7 +155,7 @@
         <div class="event-card is-past" data-animate>
           <div class="event-date"><span class="event-date__day">17</span><span class="event-date__month">Dez</span></div>
           <div><h3>EA HD's Giving Eve</h3>
-          <div class="event-meta"><span>2025</span></div>
+          <div class="event-meta"><span><svg class="meta-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v3"/><path d="M16 2v3"/><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>2025</span></div>
           <p>Mitglieder haben einen Teil ihrer Jahresend-Spenden zusammengelegt und gemeinsam
           entschieden, welche effektiven Organisationen sie bekommen — plus
           Jahresr&uuml;ckblick.</p>
@@ -150,7 +165,7 @@
         <div class="event-card is-past" data-animate>
           <div class="event-date"><span class="event-date__day">3</span><span class="event-date__month">Dez</span></div>
           <div><h3>Eine Apokalypse &uuml;berleben</h3>
-          <div class="event-meta"><span>2025</span></div>
+          <div class="event-meta"><span><svg class="meta-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v3"/><path d="M16 2v3"/><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>2025</span></div>
           <p>Kurzvortr&auml;ge &uuml;ber &uuml;berraschend g&uuml;nstige Resilienzforschung —
           von Ern&auml;hrungssicherheit nach einer Katastrophe bis Pandemievorsorge — und
           warum das ein vielversprechendes, vernachl&auml;ssigtes Feld ist.</p>
@@ -179,10 +194,13 @@
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-grid">
-      <div>
+      <div class="footer-brand">
+        <img src="../assets/img/logo-mark.svg" alt="" width="44" height="44">
+        <div>
         <strong>EA Heidelberg</strong><br>
         AWI, Bergheimer Str. 58, 69115 Heidelberg<br>
         <a href="mailto:heidelberg@effektiveraltruismus.de">heidelberg@effektiveraltruismus.de</a>
+        </div>
       </div>
       <nav aria-label="Footer">
         <a href="index.html">Start</a> &middot;
@@ -192,6 +210,7 @@
         <a href="kontakt.html">Kontakt</a>
       </nav>
     </div>
+    <p class="footer-legal"><a href="../impressum.html">Impressum &amp; Bildnachweise</a></p>
   </div>
 </footer>
 

@@ -2,7 +2,14 @@
 
 Research notes, November 2026. This file lists free resources (logos, photos,
 icons, illustrations, data graphics, textures) and the place on the site where
-each one would fit. Nothing has been added to the site yet. Licences were
+each one would fit.
+
+> **Status:** implemented so far are §1c (own logo mark, favicon, share image),
+> §2b (Commons photos on Home, About and Events), §3 (Lucide icons), §7 (wave
+> edges and contour texture), §8 (OSM map) and §9 (self-hosted fonts and
+> thumbnail, credits in `impressum.html`). Still open are §1a (official EA
+> logo, which needs CEA's permission), §2a (your own event photos), §4
+> (illustrations), §5 (OWID chart) and §6. Licences were
 checked at the source where possible. Where the answer was unclear, the note
 says so.
 

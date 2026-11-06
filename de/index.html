@@ -5,9 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Effective Altruism Heidelberg — Gutes tun, aber richtig</title>
 <meta name="description" content="Eine Heidelberger Studigruppe, die abends herausfindet, wie man anderen am meisten helfen kann — und es dann tut. Vorwissen nicht nötig.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&display=swap">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../assets/fonts/sora-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="theme-color" content="#0388a0">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="EA Heidelberg">
+<meta property="og:locale" content="de_DE">
+<meta property="og:title" content="Effective Altruism Heidelberg — Gutes tun, aber richtig">
+<meta property="og:description" content="Eine Heidelberger Studigruppe, die abends herausfindet, wie man anderen am meisten helfen kann — und es dann tut. Vorwissen nicht nötig.">
+<!-- og:image must become an absolute URL once the final domain is known (see README) -->
+<meta property="og:image" content="../assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -15,7 +28,7 @@
 
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="index.html">EA <span>Heidelberg</span></a>
+    <a class="brand" href="index.html"><img class="brand__mark" src="../assets/img/logo-mark.svg" alt="" width="34" height="34">EA <span>Heidelberg</span></a>
     <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Men&uuml;">&#9776;</button>
     <nav class="nav-links" data-nav-links aria-label="Hauptnavigation">
       <a href="index.html" aria-current="page">Start</a>
@@ -47,7 +60,12 @@
           <a class="btn btn--outline" href="was-ist-ea.html">Was ist Effektiver Altruismus?</a>
         </div>
       </div>
-      <div class="hero__stat-card" data-animate>
+      <div class="hero__media" data-animate>
+        <figure class="photo hero__photo">
+          <img src="../assets/img/alte-bruecke-900.webp" srcset="../assets/img/alte-bruecke-900.webp 900w, ../assets/img/alte-bruecke-1600.webp 1600w" sizes="(min-width:860px) 30rem, 100vw" width="900" height="600" alt="Die Alte Brücke über den Neckar in Heidelberg" fetchpriority="high">
+          <figcaption class="photo-credit">Foto: <a href="https://commons.wikimedia.org/wiki/File:Alte_Br%C3%BCcke_Heidelberg_von_Nordwesten.jpg">Stephan van Helden</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></figcaption>
+        </figure>
+        <div class="hero__stat-card">
         <span class="hero__stat-card__label">Ein bisschen Geld, gezielt eingesetzt</span>
         <ul class="hero__facts">
           <li><strong>$3</strong> kaufen ein Moskitonetz, das eine Familie jahrelang vor Malaria sch&uuml;tzt</li>
@@ -55,6 +73,7 @@
           <li><strong>&lt;$1</strong> kauft einem Haushalt ein Jahr sauberes, sicheres Wasser</li>
         </ul>
         <p class="hero__stat-card__source">Von GiveWell empfohlene Programme</p>
+      </div>
       </div>
     </div>
   </section>
@@ -123,19 +142,19 @@
       </div>
       <div class="cards">
         <div class="card" data-animate>
-          <div class="card__icon"><svg class="icon" viewBox="0 0 24 24"><circle cx="10" cy="10" r="7"></circle><line x1="15" y1="15" x2="21" y2="21"></line></svg></div>
+          <div class="card__icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg></div>
           <h3>Evidenz statt Bauchgef&uuml;hl</h3>
           <p>Mit Forschung und Daten herausfinden, was wirklich hilft — nicht nur, was sich
           gro&szlig;z&uuml;gig anf&uuml;hlt.</p>
         </div>
         <div class="card" data-animate style="transition-delay:.1s">
-          <div class="card__icon"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle><circle cx="12" cy="12" r="1.3" fill="var(--teal)" stroke="none"></circle></svg></div>
+          <div class="card__icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
           <h3>Konsequent priorisieren</h3>
           <p>Manche Probleme sind gr&ouml;&szlig;er, vernachl&auml;ssigter und l&ouml;sbarer als
           andere. Die packen wir zuerst an.</p>
         </div>
         <div class="card" data-animate style="transition-delay:.2s">
-          <div class="card__icon"><svg class="icon" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"></line><polyline points="9,5 19,5 19,15"></polyline></svg></div>
+          <div class="card__icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 14h2a2 2 0 0 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 16"/><path d="m14.45 13.39 5.05-4.694C20.196 8 21 6.85 21 5.75a2.75 2.75 0 0 0-4.797-1.837.276.276 0 0 1-.406 0A2.75 2.75 0 0 0 11 5.75c0 1.2.802 2.248 1.5 2.946L16 11.95"/><path d="m2 15 6 6"/><path d="m7 20 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a1 1 0 0 0-2.75-2.91"/></svg></div>
           <h3>Und dann wirklich handeln</h3>
           <p>&Uuml;ber den Beruf, &uuml;ber Spenden oder die eigene Zeit — Ideen z&auml;hlen
           erst, wenn man sie umsetzt.</p>
@@ -163,8 +182,8 @@
         <div>
           <h3>Einf&uuml;hrungsvortrag</h3>
           <div class="event-meta">
-            <span>Mi, 28.10.2026 &middot; 19:00&ndash;20:30</span>
-            <span>AWI-Geb&auml;ude, Raum 01.030</span>
+            <span><svg class="meta-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v3"/><path d="M16 2v3"/><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>Mi, 28.10.2026 &middot; 19:00&ndash;20:30</span>
+            <span><svg class="meta-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>AWI-Geb&auml;ude, Raum 01.030</span>
           </div>
           <p>Ein inspirierender Abend rund um die Grundprinzipien von Effective Altruism, mit
           kostenlosen Snacks, entspannter Atmosph&auml;re und der M&ouml;glichkeit, andere
@@ -205,10 +224,13 @@
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-grid">
-      <div>
+      <div class="footer-brand">
+        <img src="../assets/img/logo-mark.svg" alt="" width="44" height="44">
+        <div>
         <strong>EA Heidelberg</strong><br>
         AWI, Bergheimer Str. 58, 69115 Heidelberg<br>
         <a href="mailto:heidelberg@effektiveraltruismus.de">heidelberg@effektiveraltruismus.de</a>
+        </div>
       </div>
       <nav aria-label="Footer">
         <a href="index.html">Start</a> &middot;
@@ -218,6 +240,7 @@
         <a href="kontakt.html">Kontakt</a>
       </nav>
     </div>
+    <p class="footer-legal"><a href="../impressum.html">Impressum &amp; Bildnachweise</a></p>
   </div>
 </footer>
 

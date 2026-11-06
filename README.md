@@ -10,6 +10,7 @@ index.html          language gate — redirects by browser language,
                      with manual EN/DE links as a fallback
 impressum.html       German legal notice — see TODO below before launch
 style.css            shared design system
+assets/              self-hosted fonts, images, logo (see "Assets" below)
 script.js             shared vanilla JS (nav, animations, interactive bits)
 en/                  index, what-is-ea, about, events, contact
 de/                  index, was-ist-ea, ueber-uns, veranstaltungen, kontakt
@@ -68,6 +69,33 @@ that has to come from you, not from a redesign exercise.
   Caddy/toolsite layer it used to live behind; GitHub Pages has no
   server-side request handling to replicate that with anyway, so it's
   simply gone, by request.
-- The video embed, Google Fonts, and the GiveWell/GWWC/80,000 Hours/
-  effectivealtruism.org links are all external and need no changes for
-  the new host.
+- Fonts (Sora, Inter), icons (Lucide) and all images are self-hosted in
+  `assets/`, so pages make no requests to Google or other third parties
+  until a visitor clicks the video (which then loads from
+  youtube-nocookie.com). Sources and licences of every photo are listed
+  under "Bildnachweise / Image credits" in `impressum.html`. Keep that list
+  up to date when adding images.
+- The GiveWell/GWWC/80,000 Hours/effectivealtruism.org links are external
+  and need no changes for the new host.
+
+## Once the final domain is known
+
+Link previews (WhatsApp, Signal, Slack, etc.) need an **absolute** URL for
+the share image. In every page's `<head>`, change
+`<meta property="og:image" content="../assets/img/og-image.jpg">` to
+`https://<your-domain>/assets/img/og-image.jpg`:
+
+```bash
+grep -rl 'og:image" content="../' en de | xargs sed -i 's#og:image" content="../#og:image" content="https://YOUR-DOMAIN/#'
+```
+
+## Assets
+
+```
+favicon.svg, favicon-32.png, apple-touch-icon.png   logo mark (Alte Brücke arches + amber diamond)
+assets/img/logo-mark.svg                            same mark, used in header/footer/map pin
+assets/img/og-image.jpg                             1200×630 link-preview card
+assets/img/*.webp                                   Wikimedia Commons photos + OSM map (credits in impressum)
+assets/fonts/                                       Sora + Inter woff2, SIL OFL licences
+```
+
