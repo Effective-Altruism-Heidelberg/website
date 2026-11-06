@@ -97,5 +97,7 @@ assets/img/logo-mark.svg                            same mark, used in header/fo
 assets/img/og-image.jpg                             1200×630 link-preview card
 assets/img/*.webp                                   Wikimedia Commons photos + OSM map (credits in impressum)
 assets/fonts/                                       Sora + Inter woff2, SIL OFL licences
+assets/illustrations/                               unDraw SVGs, recoloured to the site teal
+404.html                                            served by GitHub Pages for missing URLs
 ```
 

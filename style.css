@@ -482,3 +482,44 @@ p{margin:0 0 1rem}
 .footer-legal{margin:0;padding-top:1rem;border-top:1px solid rgba(255,255,255,.15);font-size:.8rem}
 .site-footer .footer-legal a{color:var(--on-dark-soft)}
 .card .btn{max-width:100%;overflow-wrap:anywhere;text-align:center;justify-content:center}
+
+/* ---------- illustrations (unDraw, recoloured to --teal) ---------- */
+.illo{display:block;width:100%;height:auto;max-width:22rem;margin-inline:auto}
+.illo--head{max-width:15rem;margin-bottom:1.6rem}
+.illo--hero{max-width:20rem}
+@media (min-width:860px){.hero__grid--illo{grid-template-columns:1.25fr .75fr}}
+@media (max-width:859px){.illo--hero{max-width:13rem}}
+
+.split{display:grid;gap:2rem;align-items:center;max-width:58rem}
+.split + .split{margin-top:clamp(3rem,7vw,5rem)}
+.split .illo{max-width:17rem}
+@media (min-width:760px){
+  .split{grid-template-columns:1.3fr .7fr;gap:3.5rem}
+  .split--rev{grid-template-columns:.7fr 1.3fr}
+  .split--rev > .illo{order:-1}
+}
+
+/* ---------- small icons on stats and the budget accordion ---------- */
+.stat__icon{
+  width:2.6rem;height:2.6rem;margin:0 auto .6rem;padding:.6rem;border-radius:50%;
+  background:var(--tint);stroke:var(--teal);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;
+}
+.accordion__icon{
+  flex:0 0 auto;width:2.2rem;height:2.2rem;padding:.45rem;border-radius:10px;background:var(--tint);
+  stroke:var(--amber-600);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;
+}
+@media (max-width:480px){.accordion__icon{display:none}}
+
+/* ---------- data figure (Our World in Data, CC BY) ---------- */
+.data-figure{margin:1.6rem 0 0;background:var(--white);color:var(--ink);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow)}
+.data-figure img{width:100%;height:auto;border-radius:8px}
+.data-figure figcaption{font-size:.85rem;color:var(--ink-soft);padding:.8rem .3rem .2rem}
+
+/* ---------- 404 ---------- */
+.notfound{max-width:38rem;margin:0 auto;padding:2.5rem 1.25rem 4rem;text-align:center}
+.notfound .brand{margin-bottom:2rem}
+.notfound__illo{max-width:20rem;margin-bottom:1.6rem}
+.notfound__de{font-size:1rem}
+.notfound .hero__cta-row{justify-content:center}
+.hero__grid--illo{max-width:58rem}
+@media (max-width:759px){.split .illo{max-width:12rem}}

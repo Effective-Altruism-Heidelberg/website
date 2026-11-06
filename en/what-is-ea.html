@@ -280,6 +280,10 @@
           <button class="btn btn--primary" type="button" data-luck-trigger data-luck-again="Draw again">See how it could have gone</button>
         </p>
       </div>
+      <figure class="data-figure" data-animate>
+        <img src="../assets/img/owid-life-expectancy-2023.svg" width="850" height="600" alt="World map of life expectancy at birth in 2023, by country. Lowest in parts of sub-Saharan Africa, highest in Western Europe, Japan and Australia." loading="lazy">
+        <figcaption>Where you're born still shapes how long you can expect to live: across countries, average life expectancy at birth ranges from the mid-50s to the mid-80s. <a class="na" href="https://ourworldindata.org/life-expectancy">Chart: Our World in Data, CC BY</a>.</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -294,6 +298,7 @@
       <div class="accordion" data-accordion data-animate>
         <div class="accordion__item">
           <button class="accordion__row" type="button" aria-expanded="true">
+            <svg class="accordion__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 2v2"/><path d="M14 2v2"/><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"/><path d="M6 2v2"/></svg>
             <span class="accordion__amount">&asymp;&euro;60</span>
             <span class="accordion__label">Skip coffee-to-go once a week, one semester</span>
             <svg class="accordion__chev" viewBox="0 0 24 24"><polyline points="6,9 12,15 18,9"></polyline></svg>
@@ -305,6 +310,7 @@
         </div>
         <div class="accordion__item">
           <button class="accordion__row" type="button" aria-expanded="false">
+            <svg class="accordion__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m12.296 3.464 3.02 3.956"/><path d="M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3z"/><path d="M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="m6.18 5.276 3.1 3.899"/></svg>
             <span class="accordion__amount">&asymp;&euro;120</span>
             <span class="accordion__label">Skip the cinema once a month, one year</span>
             <svg class="accordion__chev" viewBox="0 0 24 24"><polyline points="6,9 12,15 18,9"></polyline></svg>
@@ -315,6 +321,7 @@
         </div>
         <div class="accordion__item">
           <button class="accordion__row" type="button" aria-expanded="false">
+            <svg class="accordion__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.8 11.3 2 22l10.7-3.79"/><path d="M4 3h.01"/><path d="M22 8h.01"/><path d="M15 2h.01"/><path d="M22 20h.01"/><path d="m22 2-2.24.75a2.9 2.9 0 0 0-1.96 3.12c.1.86-.57 1.63-1.45 1.63h-.38c-.86 0-1.6.6-1.76 1.44L14 10"/><path d="m22 13-.82-.33c-.86-.34-1.82.2-1.98 1.11c-.11.7-.72 1.22-1.43 1.22H17"/><path d="m11 2 .33.82c.34.86-.2 1.82-1.11 1.98C9.52 4.9 9 5.52 9 6.23V7"/><path d="M11 13c1.93 1.93 2.83 4.17 2 5-.83.83-3.07-.07-5-2-1.93-1.93-2.83-4.17-2-5 .83-.83 3.07.07 5 2Z"/></svg>
             <span class="accordion__amount">&asymp;&euro;180</span>
             <span class="accordion__label">Skip one night out a month, one year</span>
             <svg class="accordion__chev" viewBox="0 0 24 24"><polyline points="6,9 12,15 18,9"></polyline></svg>
@@ -333,7 +340,7 @@
   </section>
 
   <section class="section">
-    <div class="wrap" style="max-width:44rem">
+    <div class="wrap" style="max-width:60rem">
       <div class="section-head center">
         <span class="eyebrow">Go deeper</span>
         <h2>We didn't invent any of this</h2>
@@ -342,18 +349,21 @@
       </div>
       <div class="cards">
         <div class="card" data-animate>
+          <div class="card__icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div>
           <h3>effectivealtruism.org</h3>
           <p>The movement's own explanation of what effective altruism is, its core ideas,
           and how people put them into practice.</p>
           <a class="na" href="https://www.effectivealtruism.org/">Visit effectivealtruism.org &rarr;</a>
         </div>
         <div class="card" data-animate style="transition-delay:.1s">
+          <div class="card__icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 11 2 2 4-4"/><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
           <h3>GiveWell</h3>
           <p>Independent charity research, with every cost-effectiveness estimate published
           in full.</p>
           <a class="na" href="https://www.givewell.org">Visit GiveWell &rarr;</a>
         </div>
         <div class="card" data-animate style="transition-delay:.2s">
+          <div class="card__icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17"/><path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9"/><path d="m2 16 6 6"/><circle cx="16" cy="9" r="2.9"/><circle cx="6" cy="5" r="3"/></svg></div>
           <h3>Giving What We Can</h3>
           <p>A community of people who've pledged to give a meaningful share of their
           income effectively.</p>
