@@ -1,6 +1,8 @@
 /* EA Heidelberg — shared design system (EN + DE) */
 
-/* Self-hosted fonts (SIL OFL, see assets/fonts/). No requests to Google. */
+/* Self-hosted fonts (Sora/Inter: SIL OFL; Roboto Slab: Apache 2.0, see assets/fonts/). No requests to Google. */
+@font-face{font-family:"Roboto Slab";font-style:normal;font-weight:400;font-display:swap;src:url("assets/fonts/roboto-slab-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Roboto Slab";font-style:normal;font-weight:700;font-display:swap;src:url("assets/fonts/roboto-slab-latin-700-normal.woff2") format("woff2")}
 @font-face{font-family:"Sora";font-style:normal;font-weight:600;font-display:swap;src:url("assets/fonts/sora-latin-600-normal.woff2") format("woff2")}
 @font-face{font-family:"Sora";font-style:normal;font-weight:700;font-display:swap;src:url("assets/fonts/sora-latin-700-normal.woff2") format("woff2")}
 @font-face{font-family:"Inter";font-style:normal;font-weight:400;font-display:swap;src:url("assets/fonts/inter-latin-400-normal.woff2") format("woff2")}
@@ -68,9 +70,11 @@ p{margin:0 0 1rem}
 }
 .site-header .wrap{display:flex;align-items:center;gap:1rem;padding-top:.8rem;padding-bottom:.8rem}
 .brand{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--font-head);font-weight:700;font-size:1.15rem;text-decoration:none;color:var(--ink);white-space:nowrap}
-.brand__mark{width:34px;height:34px;flex:0 0 auto;transition:transform .25s ease}
-.brand:hover .brand__mark{transform:rotate(-6deg) scale(1.05)}
-.brand span{color:var(--teal)}
+.brand__mark{width:auto;height:40px;flex:0 0 auto;transition:transform .25s ease;transform-origin:50% 90%}
+.brand:hover .brand__mark{transform:rotate(-8deg)}
+/* matches the official "EA Heidelberg" lockup */
+.brand__word{font-family:"Roboto Slab",Georgia,serif;font-weight:400;font-size:1.3rem;letter-spacing:0;color:var(--ink)}
+.brand__word strong{font-weight:700}
 .nav-toggle{
   margin-left:auto;display:none;background:none;border:1px solid var(--line);
   border-radius:var(--radius-sm);width:2.4rem;height:2.4rem;font-size:1.1rem;cursor:pointer;
@@ -450,11 +454,12 @@ p{margin:0 0 1rem}
 .map-card__map > img{width:100%;height:100%;object-fit:cover;filter:saturate(.75);transition:transform .4s ease}
 .map-card__map:hover > img{transform:scale(1.03)}
 .map-pin{
-  position:absolute;left:50%;top:50%;width:2.6rem;height:2.6rem;margin:-2.9rem 0 0 -1.3rem;
+  position:absolute;left:50%;top:50%;width:2.8rem;height:2.8rem;margin:-3.3rem 0 0 -1.4rem;
+  background:var(--white);border-radius:50%;padding:.4rem;display:flex;align-items:center;justify-content:center;
   filter:drop-shadow(0 6px 10px rgba(6,51,56,.45));animation:pin-bob 2.4s ease-in-out infinite;
 }
-.map-pin img{width:100%;height:100%}
-.map-pin::after{content:"";position:absolute;left:50%;bottom:-.45rem;width:.7rem;height:.7rem;margin-left:-.35rem;background:var(--teal);transform:rotate(45deg);border-radius:2px;z-index:-1}
+.map-pin img{height:100%;width:auto}
+.map-pin::after{content:"";position:absolute;left:50%;bottom:-.3rem;width:.7rem;height:.7rem;margin-left:-.35rem;background:var(--white);transform:rotate(45deg);border-radius:2px;z-index:-1}
 @keyframes pin-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
 @media (prefers-reduced-motion: reduce){.map-pin{animation:none}}
 .map-card figcaption{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.3rem 1rem;padding:.8rem 1.1rem;font-size:.88rem;font-weight:600}
@@ -478,7 +483,7 @@ p{margin:0 0 1rem}
 }
 .site-footer{padding-top:calc(2.4rem + 44px)}
 .footer-brand{display:flex;gap:.9rem;align-items:flex-start}
-.footer-brand img{flex:0 0 auto;border-radius:12px}
+.footer-brand__mark{flex:0 0 auto;width:30px;height:auto;opacity:.95}
 .footer-legal{margin:0;padding-top:1rem;border-top:1px solid rgba(255,255,255,.15);font-size:.8rem}
 .site-footer .footer-legal a{color:var(--on-dark-soft)}
 .card .btn{max-width:100%;overflow-wrap:anywhere;text-align:center;justify-content:center}
@@ -523,3 +528,61 @@ p{margin:0 0 1rem}
 .notfound .hero__cta-row{justify-content:center}
 .hero__grid--illo{max-width:58rem}
 @media (max-width:759px){.split .illo{max-width:12rem}}
+
+/* ---------- gallery (own photos) ---------- */
+.gallery{display:grid;gap:.8rem;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (min-width:700px){.gallery{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.gallery__item{display:block;position:relative;aspect-ratio:4/3;border-radius:var(--radius-sm);overflow:hidden;background:var(--teal-900);box-shadow:var(--shadow-sm)}
+@media (min-width:700px){
+  .gallery{grid-auto-flow:dense}
+  .gallery__item:first-child{grid-column:span 2;grid-row:span 2}
+  .gallery__item:nth-child(6){grid-column:span 2;aspect-ratio:auto}
+}
+.gallery__item img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease,opacity .3s ease}
+.gallery__item:hover img,.gallery__item:focus-visible img{transform:scale(1.05);opacity:.92}
+.gallery__item::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(6,51,56,.08);pointer-events:none;
+}
+
+/* ---------- banner wall (past event banners) ---------- */
+.banner-wall{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,15rem),1fr))}
+.banner-card{margin:0;background:var(--white);border-radius:var(--radius-sm);overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid var(--line);transition:transform .2s ease,box-shadow .2s ease}
+.banner-card:hover{transform:translateY(-3px) rotate(-.4deg);box-shadow:var(--shadow)}
+.banner-card img{width:100%;aspect-ratio:16/9;height:auto;object-fit:cover;display:block}
+.banner-card figcaption{font-family:var(--font-head);font-weight:600;font-size:.85rem;padding:.6rem .8rem}
+
+/* ---------- lightbox ---------- */
+.lightbox{border:none;padding:0;background:transparent;max-width:min(92vw,1200px);max-height:92vh;overflow:visible}
+.lightbox::backdrop{background:rgba(6,20,22,.88)}
+.lightbox figure{margin:0}
+.lightbox img{display:block;max-width:100%;max-height:82vh;width:auto;height:auto;margin:0 auto;border-radius:12px;box-shadow:0 20px 60px -20px rgba(0,0,0,.6)}
+.lightbox figcaption{color:#e3f6f4;text-align:center;font-size:.9rem;margin-top:.7rem}
+.lightbox__close,.lightbox__nav{
+  position:fixed;z-index:2;border:none;cursor:pointer;color:#fff;background:rgba(255,255,255,.14);
+  width:2.8rem;height:2.8rem;border-radius:50%;font-size:1.7rem;line-height:1;display:flex;align-items:center;justify-content:center;
+}
+.lightbox__close:hover,.lightbox__nav:hover{background:rgba(255,255,255,.28)}
+.lightbox__close{top:1rem;right:1rem}
+.lightbox__nav{top:50%;margin-top:-1.4rem}
+.lightbox__nav--prev{left:1rem}
+.lightbox__nav--next{right:1rem}
+
+/* ---------- group chats (contact) ---------- */
+.chat-card{
+  margin-top:1.3rem;display:grid;gap:1.4rem;align-items:center;background:var(--white);border:1px solid var(--line);
+  border-radius:var(--radius);padding:1.6rem;box-shadow:var(--shadow-sm);
+}
+@media (min-width:760px){.chat-card{grid-template-columns:1fr auto}}
+.chat-card__intro p{margin-bottom:0;color:var(--ink-soft)}
+.chat-card__options{display:flex;flex-wrap:wrap;gap:1.2rem}
+.chat-option{display:flex;flex-direction:column;align-items:center;gap:.7rem}
+.chat-option__qr{width:132px;height:132px;border-radius:12px;border:1px solid var(--line);padding:4px;background:#fff}
+.chat-card__scan{grid-column:1/-1;margin:0;font-size:.8rem;color:var(--ink-soft);display:flex;align-items:center;justify-content:flex-end}
+/* scanning a QR code on the phone you're holding is pointless: show buttons only */
+@media (max-width:759px){
+  .chat-option__qr,.chat-card__scan{display:none}
+  .chat-card__options{flex-direction:column}
+  .chat-option .btn{width:100%;justify-content:center}
+}
+/* wide tile: take the image out of flow so the row height comes from its 4:3 neighbours */
+@media (min-width:700px){.gallery__item:nth-child(6) img{position:absolute;inset:0}}

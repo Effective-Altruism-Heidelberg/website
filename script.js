@@ -243,3 +243,42 @@
     initVideoEmbeds();
   });
 })();
+
+/* ---------- gallery lightbox ----------
+   Progressive enhancement: without JS each thumbnail is a plain link to the
+   full-size photo. With JS it opens in a native <dialog> (Esc closes it,
+   focus is handled by the browser), with arrow-key / button navigation. */
+(function () {
+  var dialog = document.querySelector("[data-lightbox-dialog]");
+  var items = Array.prototype.slice.call(document.querySelectorAll("[data-lightbox]"));
+  if (!dialog || !items.length || typeof dialog.showModal !== "function") return;
+  var img = dialog.querySelector("img");
+  var cap = dialog.querySelector("figcaption");
+  var index = 0;
+
+  function show(i) {
+    index = (i + items.length) % items.length;
+    var thumb = items[index].querySelector("img");
+    img.src = items[index].getAttribute("href");
+    img.alt = thumb ? thumb.alt : "";
+    cap.textContent = (thumb ? thumb.alt : "") + "  (" + (index + 1) + " / " + items.length + ")";
+  }
+
+  items.forEach(function (a, i) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      show(i);
+      dialog.showModal();
+    });
+  });
+  dialog.querySelector("[data-lightbox-close]").addEventListener("click", function () { dialog.close(); });
+  dialog.querySelector("[data-lightbox-prev]").addEventListener("click", function () { show(index - 1); });
+  dialog.querySelector("[data-lightbox-next]").addEventListener("click", function () { show(index + 1); });
+  dialog.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowLeft") show(index - 1);
+    if (e.key === "ArrowRight") show(index + 1);
+  });
+  // click on the dark backdrop (outside the photo) closes
+  dialog.addEventListener("click", function (e) { if (e.target === dialog) dialog.close(); });
+  dialog.addEventListener("close", function () { img.removeAttribute("src"); });
+})();
