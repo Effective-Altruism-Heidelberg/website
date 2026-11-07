@@ -529,28 +529,6 @@ p{margin:0 0 1rem}
 .hero__grid--illo{max-width:58rem}
 @media (max-width:759px){.split .illo{max-width:12rem}}
 
-/* ---------- gallery (own photos) ---------- */
-.gallery{display:grid;gap:.8rem;grid-template-columns:repeat(2,minmax(0,1fr))}
-@media (min-width:700px){.gallery{grid-template-columns:repeat(4,minmax(0,1fr))}}
-.gallery__item{display:block;position:relative;aspect-ratio:4/3;border-radius:var(--radius-sm);overflow:hidden;background:var(--teal-900);box-shadow:var(--shadow-sm)}
-@media (min-width:700px){
-  .gallery{grid-auto-flow:dense}
-  .gallery__item:first-child{grid-column:span 2;grid-row:span 2}
-  .gallery__item:nth-child(6){grid-column:span 2;aspect-ratio:auto}
-}
-.gallery__item img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease,opacity .3s ease}
-.gallery__item:hover img,.gallery__item:focus-visible img{transform:scale(1.05);opacity:.92}
-.gallery__item::after{
-  content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(6,51,56,.08);pointer-events:none;
-}
-
-/* ---------- banner wall (past event banners) ---------- */
-.banner-wall{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,15rem),1fr))}
-.banner-card{margin:0;background:var(--white);border-radius:var(--radius-sm);overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid var(--line);transition:transform .2s ease,box-shadow .2s ease}
-.banner-card:hover{transform:translateY(-3px) rotate(-.4deg);box-shadow:var(--shadow)}
-.banner-card img{width:100%;aspect-ratio:16/9;height:auto;object-fit:cover;display:block}
-.banner-card figcaption{font-family:var(--font-head);font-weight:600;font-size:.85rem;padding:.6rem .8rem}
-
 /* ---------- lightbox ---------- */
 .lightbox{border:none;padding:0;background:transparent;max-width:min(92vw,1200px);max-height:92vh;overflow:visible}
 .lightbox::backdrop{background:rgba(6,20,22,.88)}
@@ -584,5 +562,93 @@ p{margin:0 0 1rem}
   .chat-card__options{flex-direction:column}
   .chat-option .btn{width:100%;justify-content:center}
 }
-/* wide tile: take the image out of flow so the row height comes from its 4:3 neighbours */
-@media (min-width:700px){.gallery__item:nth-child(6) img{position:absolute;inset:0}}
+
+/* =========================================================
+   Gallery: photo "prints" on a pinboard
+   Photos keep their real 4:3 shape (no cropping, no stretching).
+   ========================================================= */
+.section--board{
+  position:relative;overflow:hidden;
+  background-color:var(--cream);
+  background-image:radial-gradient(rgba(6,51,56,.10) 1.1px,transparent 1.6px);
+  background-size:22px 22px;
+}
+.section--board::before{ /* faint lightbulb watermark */
+  content:"";position:absolute;right:-4rem;top:3rem;width:20rem;height:31rem;
+  background:url("assets/img/ea-logo.svg") center/contain no-repeat;opacity:.05;pointer-events:none;
+}
+.section--board > .wrap{position:relative}
+
+.chapter{display:grid;gap:2rem;align-items:center;margin-top:clamp(3rem,7vw,5.5rem)}
+@media (min-width:900px){
+  .chapter{grid-template-columns:minmax(0,.8fr) minmax(0,2fr);gap:3.5rem}
+  .chapter--rev{grid-template-columns:minmax(0,2fr) minmax(0,.8fr)}
+  .chapter--rev .chapter__text{order:2}
+}
+.chapter__num{
+  display:block;font-family:var(--font-head);font-weight:700;font-size:4.5rem;line-height:1;margin-bottom:.4rem;
+  color:transparent;-webkit-text-stroke:2px var(--teal);opacity:.55;
+}
+.chapter__text h3{font-size:1.6rem;margin-bottom:.6rem}
+.chapter__text p{color:var(--ink-soft);margin:0}
+.chapter__text::after{ /* small amber underline accent */
+  content:"";display:block;width:3rem;height:4px;border-radius:2px;background:var(--amber);margin-top:1.2rem;
+}
+
+/* the print itself */
+.print{
+  position:relative;display:block;background:#fff;padding:.5rem .5rem 0;border-radius:3px;
+  color:var(--ink);text-decoration:none;
+  box-shadow:0 14px 30px -14px rgba(6,51,56,.5),0 2px 6px -2px rgba(6,51,56,.18);
+  transform:rotate(var(--r,0deg));transition:transform .3s ease,box-shadow .3s ease;
+}
+.print img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;background:var(--tint)}
+.print__cap{display:block;text-align:center;font-family:"Roboto Slab",Georgia,serif;font-size:.86rem;color:var(--ink-soft);padding:.5rem .3rem .65rem}
+.print::before{ /* strip of tape */
+  content:"";position:absolute;top:-.75rem;left:50%;width:4.8rem;height:1.5rem;margin-left:-2.4rem;z-index:1;
+  background:rgba(234,138,31,.42);transform:rotate(-4deg);
+  box-shadow:0 1px 2px rgba(0,0,0,.08);
+}
+.print:nth-child(even)::before{background:rgba(3,136,160,.3);transform:rotate(5deg)}
+.print:hover,.print:focus-visible{
+  transform:rotate(0deg) scale(1.04);z-index:10;
+  box-shadow:0 24px 44px -16px rgba(6,51,56,.55),0 2px 6px -2px rgba(6,51,56,.2);
+}
+@media (prefers-reduced-motion: reduce){.print{transition:none}}
+
+/* collage: phones get a neat 2-column board */
+.collage{display:grid;gap:1.6rem 1.1rem;grid-template-columns:repeat(2,minmax(0,1fr));padding:1rem .3rem}
+.collage .print--a{grid-column:1 / -1}
+.collage .print--d{grid-column:1 / -1;justify-self:center;width:72%}
+/* desktop: overlapping, scattered arrangement */
+@media (min-width:900px){
+  .collage{grid-template-columns:repeat(12,minmax(0,1fr));gap:0;padding:1.5rem 0 1rem}
+  .collage .print--a{grid-column:1 / 9;grid-row:1 / 3;z-index:5}
+  .collage .print--b{grid-column:8 / 13;grid-row:1;align-self:start;margin-top:-.5rem;z-index:6}
+  .collage .print--c{grid-column:9 / 13;grid-row:2 / 4;align-self:end;margin:1.5rem 0 0 .5rem;z-index:4}
+  .collage .print--d{grid-column:2 / 8;grid-row:3;justify-self:stretch;width:auto;margin-top:-1.4rem;z-index:3}
+  .chapter--rev .collage .print--a{grid-column:5 / 13}
+  .chapter--rev .collage .print--b{grid-column:1 / 6}
+  .chapter--rev .collage .print--c{grid-column:1 / 5;margin:1.5rem .5rem 0 0}
+  .chapter--rev .collage .print--d{grid-column:6 / 12}
+}
+
+/* ---------- banner pinboard (past event banners, natural heights) ---------- */
+.banner-wall{columns:1;column-gap:1.4rem}
+@media (min-width:560px){.banner-wall{columns:2}}
+@media (min-width:900px){.banner-wall{columns:3}}
+@media (min-width:1100px){.banner-wall{columns:4}}
+.banner-card{
+  position:relative;break-inside:avoid;margin:0 0 1.6rem;background:#fff;padding:.45rem .45rem 0;border-radius:4px;
+  box-shadow:0 12px 26px -14px rgba(6,51,56,.45);transform:rotate(-.8deg);transition:transform .25s ease,box-shadow .25s ease;
+}
+.banner-card:nth-child(3n+2){transform:rotate(.9deg)}
+.banner-card:nth-child(3n){transform:rotate(-.3deg)}
+.banner-card:hover{transform:rotate(0) translateY(-3px);box-shadow:0 20px 36px -16px rgba(6,51,56,.5)}
+.banner-card::before{ /* pin */
+  content:"";position:absolute;top:-.45rem;left:50%;width:.95rem;height:.95rem;margin-left:-.475rem;border-radius:50%;z-index:1;
+  background:radial-gradient(circle at 35% 35%,#f6b46a,var(--amber-600));box-shadow:0 2px 3px rgba(0,0,0,.25);
+}
+.banner-card:nth-child(even)::before{background:radial-gradient(circle at 35% 35%,#4fc3d6,var(--teal-600))}
+.banner-card img{width:100%;height:auto;display:block;border-radius:2px}
+.banner-card figcaption{font-family:"Roboto Slab",Georgia,serif;font-size:.85rem;color:var(--ink-soft);text-align:center;padding:.5rem .3rem .6rem}

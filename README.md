@@ -96,8 +96,8 @@ grep -rl 'www.eaheidelberg.de/assets' en de | xargs sed -i 's#https://www.eaheid
 favicon.svg, favicon-32.png, apple-touch-icon.png   EA lightbulb logo (used under licence)
 assets/img/ea-logo.svg, ea-logo-white.svg           logo for header, footer, map pin, 404
 assets/img/og-image.jpg                             1200×630 link-preview card (EA HD banner)
-assets/img/*.webp                                   Heidelberg night photo (Commons) + OSM map
-assets/photos/                                      own photos, intro talk May 2023 (720w + 1600w)
+assets/img/*.webp                                   Alte Brücke + Heidelberg night photos (Commons) + OSM map
+assets/photos/                                      own photos, intro talk May 2023 (gallery + About)
 assets/banners/                                     past event banners, shown on the gallery page
 assets/qr/                                          Signal + WhatsApp group QR codes (contact page)
 assets/fonts/                                       Sora, Inter (OFL), Roboto Slab (Apache 2.0)
