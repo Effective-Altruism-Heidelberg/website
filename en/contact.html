@@ -16,8 +16,7 @@
 <meta property="og:locale" content="en_GB">
 <meta property="og:title" content="Contact — EA Heidelberg">
 <meta property="og:description" content="Where our events happen, and how to reach us.">
-<!-- og:image must become an absolute URL once the final domain is known (see README) -->
-<meta property="og:image" content="../assets/img/og-image.jpg">
+<meta property="og:image" content="https://www.eaheidelberg.de/assets/img/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -28,13 +27,14 @@
 
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="index.html"><img class="brand__mark" src="../assets/img/logo-mark.svg" alt="" width="34" height="34">EA <span>Heidelberg</span></a>
+    <a class="brand" href="index.html"><img class="brand__mark" src="../assets/img/ea-logo.svg" alt="" width="26" height="40"><span class="brand__word"><strong>EA</strong> Heidelberg</span></a>
     <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Menu">&#9776;</button>
     <nav class="nav-links" data-nav-links aria-label="Primary">
       <a href="index.html">Home</a>
       <a href="what-is-ea.html">What is EA?</a>
       <a href="about.html">About</a>
       <a href="events.html">Events</a>
+      <a href="gallery.html">Gallery</a>
       <a href="contact.html" aria-current="page">Contact</a>
       <span class="lang-switch">
         <a href="contact.html" aria-current="true">EN</a>
@@ -81,10 +81,30 @@
       <figure class="map-card" data-animate>
         <a class="map-card__map" href="https://www.openstreetmap.org/?mlat=49.40845&amp;mlon=8.68381#map=18/49.40845/8.68381" aria-label="Open in OpenStreetMap">
           <img src="../assets/img/map-awi.webp" width="1000" height="520" alt="Map showing Campus Bergheim, Bergheimer Straße 58, Heidelberg" loading="lazy">
-          <span class="map-pin" aria-hidden="true"><img src="../assets/img/logo-mark.svg" alt=""></span>
+          <span class="map-pin" aria-hidden="true"><img src="../assets/img/ea-logo.svg" alt=""></span>
         </a>
         <figcaption><span><svg class="meta-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Campus Bergheim &middot; Bergheimer Straße 58</span><span class="map-card__attr">&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors</span></figcaption>
       </figure>
+
+      <div class="chat-card" data-animate>
+        <div class="chat-card__intro">
+          <div class="card__icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/><path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1"/></svg></div>
+          <span class="eyebrow">Group chats</span>
+          <h3>Hear about every event first</h3>
+          <p>Join our group chat for event announcements, reminders and the occasional interesting link. Pick whichever app you already use.</p>
+        </div>
+        <div class="chat-card__options">
+          <div class="chat-option">
+            <img class="chat-option__qr" src="../assets/qr/signal.png" width="160" height="160" alt="QR code for the EA Heidelberg Signal group" loading="lazy">
+            <a class="btn btn--outline" href="https://signal.group/#CjQKIDoBNc8v0dbudz6awjd0GYo_wjgMLEkersj0IkBpCf2jEhA7a7MxDtiI-CpQTS6bXPLa" rel="noopener">Join on Signal &rarr;</a>
+          </div>
+          <div class="chat-option">
+            <img class="chat-option__qr" src="../assets/qr/whatsapp.png" width="160" height="160" alt="QR code for the EA Heidelberg WhatsApp group" loading="lazy">
+            <a class="btn btn--outline" href="https://chat.whatsapp.com/F6fVeZOHrDmJaYYzMTAJpN" rel="noopener">Join on WhatsApp &rarr;</a>
+          </div>
+        </div>
+        <p class="chat-card__scan"><svg class="meta-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>Scan with your phone</p>
+      </div>
     </div>
   </section>
 
@@ -102,7 +122,7 @@
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="../assets/img/logo-mark.svg" alt="" width="44" height="44">
+        <img class="footer-brand__mark" src="../assets/img/ea-logo-white.svg" alt="" width="30" height="46">
         <div>
         <strong>EA Heidelberg</strong><br>
         AWI, Bergheimer Str. 58, 69115 Heidelberg<br>
@@ -114,6 +134,7 @@
         <a href="what-is-ea.html">What is EA?</a> &middot;
         <a href="about.html">About</a> &middot;
         <a href="events.html">Events</a> &middot;
+        <a href="gallery.html">Gallery</a> &middot;
         <a href="contact.html">Contact</a>
       </nav>
     </div>

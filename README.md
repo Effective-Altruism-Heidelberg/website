@@ -12,8 +12,8 @@ impressum.html       German legal notice — see TODO below before launch
 style.css            shared design system
 assets/              self-hosted fonts, images, logo (see "Assets" below)
 script.js             shared vanilla JS (nav, animations, interactive bits)
-en/                  index, what-is-ea, about, events, contact
-de/                  index, was-ist-ea, ueber-uns, veranstaltungen, kontakt
+en/                  index, what-is-ea, about, events, gallery, contact
+de/                  index, was-ist-ea, ueber-uns, veranstaltungen, galerie, kontakt
 ```
 
 ## TODO before this actually goes live
@@ -78,26 +78,33 @@ that has to come from you, not from a redesign exercise.
 - The GiveWell/GWWC/80,000 Hours/effectivealtruism.org links are external
   and need no changes for the new host.
 
-## Once the final domain is known
+## Domain and link previews
 
-Link previews (WhatsApp, Signal, Slack, etc.) need an **absolute** URL for
-the share image. In every page's `<head>`, change
-`<meta property="og:image" content="../assets/img/og-image.jpg">` to
-`https://<your-domain>/assets/img/og-image.jpg`:
+The group's QR codes and posters point to **https://www.eaheidelberg.de/**, so
+every page's `og:image` already uses the absolute URL
+`https://www.eaheidelberg.de/assets/img/og-image.jpg`. Link previews will work
+once this site is served from that domain. If the domain changes, update it in
+one go:
 
 ```bash
-grep -rl 'og:image" content="../' en de | xargs sed -i 's#og:image" content="../#og:image" content="https://YOUR-DOMAIN/#'
+grep -rl 'www.eaheidelberg.de/assets' en de | xargs sed -i 's#https://www.eaheidelberg.de/#https://NEW-DOMAIN/#'
 ```
 
 ## Assets
 
 ```
-favicon.svg, favicon-32.png, apple-touch-icon.png   logo mark (Alte Brücke arches + amber diamond)
-assets/img/logo-mark.svg                            same mark, used in header/footer/map pin
-assets/img/og-image.jpg                             1200×630 link-preview card
-assets/img/*.webp                                   Wikimedia Commons photos + OSM map (credits in impressum)
-assets/fonts/                                       Sora + Inter woff2, SIL OFL licences
+favicon.svg, favicon-32.png, apple-touch-icon.png   EA lightbulb logo (used under licence)
+assets/img/ea-logo.svg, ea-logo-white.svg           logo for header, footer, map pin, 404
+assets/img/og-image.jpg                             1200×630 link-preview card (EA HD banner)
+assets/img/*.webp                                   Heidelberg night photo (Commons) + OSM map
+assets/photos/                                      own photos, intro talk May 2023 (720w + 1600w)
+assets/banners/                                     past event banners, shown on the gallery page
+assets/qr/                                          Signal + WhatsApp group QR codes (contact page)
+assets/fonts/                                       Sora, Inter (OFL), Roboto Slab (Apache 2.0)
 assets/illustrations/                               unDraw SVGs, recoloured to the site teal
 404.html                                            served by GitHub Pages for missing URLs
 ```
 
+Image sources and licences are listed under "Bildnachweise / Image credits" in
+`impressum.html`. Keep that list up to date when adding images. Photos of
+people should only go up with their consent.
