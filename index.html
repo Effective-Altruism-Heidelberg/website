@@ -4,13 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>EA Heidelberg</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Sora:wght@700&display=swap">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/sora-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="theme-color" content="#0388a0">
 <link rel="stylesheet" href="style.css">
 <style>
   body{display:flex;min-height:100vh;align-items:center;justify-content:center}
   .gate{text-align:center;padding:2rem}
+  .gate__mark{margin:0 auto 1.2rem;border-radius:18px;box-shadow:var(--shadow)}
   .gate .choices{display:flex;gap:1rem;justify-content:center;margin-top:1.6rem;flex-wrap:wrap}
 </style>
 <script>
@@ -23,6 +27,7 @@
 </head>
 <body>
   <div class="gate">
+    <img class="gate__mark" src="assets/img/logo-mark.svg" alt="" width="72" height="72">
     <span class="eyebrow">EA Heidelberg</span>
     <h1>Choose a language / Sprache w&auml;hlen</h1>
     <p class="lede">Redirecting automatically&hellip; if nothing happens, pick one below.</p>

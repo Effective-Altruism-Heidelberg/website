@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found / Seite nicht gefunden — EA Heidelberg</title>
+<meta name="robots" content="noindex">
+<script>
+  // GitHub Pages serves this file for any missing path, at any depth, so
+  // relative links need a base. Project sites live under /<repo>/, custom
+  // domains and <org>.github.io user sites live at /.
+  (function () {
+    var seg = location.pathname.split("/")[1] || "";
+    var project = /\.github\.io$/.test(location.hostname) && seg &&
+                  seg !== "en" && seg !== "de" && seg.indexOf(".") === -1;
+    document.write('<base href="' + (project ? "/" + seg + "/" : "/") + '">');
+  })();
+</script>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="notfound">
+  <a class="brand" href="index.html"><img class="brand__mark" src="assets/img/logo-mark.svg" alt="" width="34" height="34">EA <span>Heidelberg</span></a>
+  <img class="illo notfound__illo" src="assets/illustrations/nobody-home.svg" alt="">
+  <span class="eyebrow">404</span>
+  <h1>Nobody's home here.</h1>
+  <p class="lede">This page doesn't exist (any more). But the group does, and we meet every week.</p>
+  <p class="lede notfound__de" lang="de">Diese Seite gibt es nicht (mehr). Uns aber schon, und wir treffen uns jede Woche.</p>
+  <div class="hero__cta-row">
+    <a class="btn btn--primary" href="en/events.html">Next event &rarr;</a>
+    <a class="btn btn--outline" href="en/index.html">English home</a>
+    <a class="btn btn--outline" href="de/index.html" lang="de">Deutsche Startseite</a>
+  </div>
+</main>
+</body>
+</html>
