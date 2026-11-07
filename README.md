@@ -78,6 +78,18 @@ that has to come from you, not from a redesign exercise.
 - The GiveWell/GWWC/80,000 Hours/effectivealtruism.org links are external
   and need no changes for the new host.
 
+## After changing style.css or script.js
+
+Every page loads them with a version tag (`style.css?v=20261107`). GitHub
+Pages lets browsers cache files for 10 minutes, and phones sometimes keep
+them longer, so **bump the tag whenever you change either file**. Otherwise
+visitors can get new pages with an old stylesheet:
+
+```bash
+NEW=$(date +%Y%m%d%H%M)
+grep -rlE '(style\.css|script\.js)\?v=' --include=*.html . | xargs sed -i -E "s/(style\.css|script\.js)\?v=[0-9]+/\1?v=$NEW/g"
+```
+
 ## Domain and link previews
 
 The group's QR codes and posters point to **https://www.eaheidelberg.de/**, so

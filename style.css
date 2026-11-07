@@ -46,6 +46,8 @@ body{
   line-height:1.6;
 }
 img,svg{display:block;max-width:100%}
+/* keep proportions even if a component style fails to load (img width/height attrs would otherwise stretch) */
+img{height:auto}
 a{color:inherit}
 .skip-link{
   position:absolute;left:-999px;top:0;background:var(--ink);color:#fff;
