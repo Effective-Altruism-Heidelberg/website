@@ -8,23 +8,13 @@ Pages" once they do.
 ```
 index.html          language gate — redirects by browser language,
                      with manual EN/DE links as a fallback
-impressum.html       German legal notice — see TODO below before launch
+impressum.html       German legal notice (§5 DDG) + image credits
 style.css            shared design system
 assets/              self-hosted fonts, images, logo (see "Assets" below)
 script.js             shared vanilla JS (nav, animations, interactive bits)
 en/                  index, what-is-ea, about, events, gallery, contact
 de/                  index, was-ist-ea, ueber-uns, veranstaltungen, galerie, kontakt
 ```
-
-## TODO before this actually goes live
-
-**`impressum.html` is a placeholder.** It has bracketed fields
-(`[Name der verantwortlichen Person/Organisation]` etc.) instead of real
-information. German law (§5 DDG) requires this page to correctly name
-whoever is actually responsible for the site's content — fill it in
-before publishing. This wasn't guessed on purpose: it's the one piece of
-real-world information (who's the responsible organiser, what address)
-that has to come from you, not from a redesign exercise.
 
 ## Deploying, step by step
 
