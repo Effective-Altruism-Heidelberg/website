@@ -1,0 +1,73 @@
+# Pages CMS (https://pagescms.org) — form editor for the event list.
+# Saving in Pages CMS commits data/events.json straight to the branch;
+# GitHub Pages then redeploys the site within a minute or two.
+# The pages read the file at runtime (see initEvents in script.js), so no
+# HTML has to be touched when adding an event.
+content:
+  - name: events
+    label: Veranstaltungen / Events
+    type: file
+    path: data/events.json
+    format: json
+    list: true
+    fields:
+      - name: date
+        label: Datum
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: start
+        label: Beginn (z. B. 19:00)
+        type: string
+        description: Optional. Format HH:MM.
+        pattern:
+          regex: "^$|^([01]\\d|2[0-3]):[0-5]\\d$"
+          message: "Bitte im Format HH:MM, z. B. 19:00"
+      - name: end
+        label: Ende (z. B. 20:30)
+        type: string
+        description: Optional. Format HH:MM.
+        pattern:
+          regex: "^$|^([01]\\d|2[0-3]):[0-5]\\d$"
+          message: "Bitte im Format HH:MM, z. B. 20:30"
+      - name: title_de
+        label: Titel (Deutsch)
+        type: string
+        required: true
+      - name: title_en
+        label: Titel (Englisch)
+        type: string
+        description: Leer lassen = deutscher Titel wird auch auf der englischen Seite angezeigt.
+      - name: location_de
+        label: Ort (Deutsch)
+        type: string
+        description: z. B. "AWI-Gebäude, Raum 01.030"
+      - name: location_en
+        label: Ort (Englisch)
+        type: string
+        description: z. B. "AWI building, room 01.030". Leer lassen = deutscher Text.
+      - name: description_de
+        label: Beschreibung (Deutsch)
+        type: text
+        description: Eine Leerzeile beginnt einen neuen Absatz.
+      - name: description_en
+        label: Beschreibung (Englisch)
+        type: text
+        description: Leer lassen = deutscher Text.
+      - name: signup_url
+        label: Anmelde-Link (optional)
+        type: string
+        description: z. B. ein Google-Forms-Link. Wird nur bei kommenden Terminen als Button gezeigt.
+      - name: note_de
+        label: Zusatz (Deutsch, optional)
+        type: string
+        description: Kurzer Hinweis neben dem Datum, z. B. "Highlight des Semesters".
+      - name: note_en
+        label: Zusatz (Englisch, optional)
+        type: string
+      - name: archive
+        label: Nach dem Termin im Rückblick zeigen
+        type: boolean
+        default: true
+        description: Vergangene Termine erscheinen unter "Was bei uns zuletzt lief" (die neuesten 6).

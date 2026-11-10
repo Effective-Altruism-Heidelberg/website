@@ -231,8 +231,146 @@
     });
   }
 
+  // Events come from data/events.json (edited via Pages CMS, see
+  // .pages.yml), so adding an event never touches the HTML. Containers opt
+  // in with [data-events="next" | "upcoming" | "past"] plus
+  // data-events-src (path to the JSON) and data-lang ("de" | "en"). Their
+  // static content is the fallback shown without JS or if loading fails.
+  // An event counts as upcoming through the whole of its day, judged by the
+  // visitor's local date.
+  var EVENTS_PAST_LIMIT = 6;
+  var EVENT_TEXT = {
+    de: {
+      months: ["Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"],
+      days: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"],
+      date: function (d) { return pad(d.getDate()) + "." + pad(d.getMonth() + 1) + "." + d.getFullYear(); },
+      signup: "Kurz anmelden (optional) →",
+      none: "Gerade ist kein neuer Termin eingetragen. Die nächsten Termine kündigen wir " +
+        "in unserer Signal- und WhatsApp-Gruppe an — ",
+      noneLink: "hier kommst du rein",
+      contact: "kontakt.html"
+    },
+    en: {
+      months: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+      days: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      date: function (d) { return d.getDate() + " " + EVENT_TEXT.en.months[d.getMonth()] + " " + d.getFullYear(); },
+      signup: "Quick sign-up (optional) →",
+      none: "No new date is listed right now. We announce upcoming events in our Signal " +
+        "and WhatsApp groups — ",
+      noneLink: "here's how to join",
+      contact: "contact.html"
+    }
+  };
+  var ICON_CAL = '<svg class="meta-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v3"/><path d="M16 2v3"/><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>';
+  var ICON_PIN = '<svg class="meta-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>';
+
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+
+  // Localised field with German fallback, so an untranslated event still shows.
+  function field(ev, name, lang) {
+    var v = ev[name + "_" + lang];
+    if (v == null || String(v).trim() === "") v = ev[name + "_de"];
+    return v == null ? "" : String(v).trim();
+  }
+
+  // "2026-10-28" -> local Date at midnight (new Date("2026-10-28") would be UTC).
+  function parseDay(s) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(s || "");
+    return m ? new Date(+m[1], +m[2] - 1, +m[3]) : null;
+  }
+
+  function renderEvent(ev, lang, kind) {
+    var t = EVENT_TEXT[lang];
+    var d = ev._day;
+    var meta = [];
+    var note = field(ev, "note", lang);
+    if (kind === "past") {
+      meta.push(ICON_CAL + esc(d.getFullYear() + (note ? " · " + note : "")));
+    } else {
+      var when = t.days[d.getDay()] + ", " + t.date(d);
+      var start = (ev.start || "").trim(), end = (ev.end || "").trim();
+      if (start) when += " · " + start + (end ? "–" + end : "");
+      if (note) when += " · " + note;
+      meta.push(ICON_CAL + esc(when));
+      var loc = field(ev, "location", lang);
+      if (loc) meta.push(ICON_PIN + esc(loc));
+    }
+    var desc = field(ev, "description", lang).split(/\n\s*\n/).filter(function (p) {
+      return p.trim();
+    }).map(function (p) { return "<p>" + esc(p.trim()) + "</p>"; }).join("");
+    var signup = "";
+    if (kind !== "past" && /^https?:\/\//.test((ev.signup_url || "").trim())) {
+      signup = '<a class="btn ' + (kind === "featured" ? "btn--on-dark" : "btn--primary") +
+        '" href="' + esc(ev.signup_url.trim()) + '">' + esc(t.signup) + "</a>";
+    }
+    var cls = kind === "featured" ? " is-featured" : kind === "past" ? " is-past" : "";
+    return '<div class="event-card' + cls + '">' +
+      '<div class="event-date"><span class="event-date__day">' + d.getDate() +
+      '</span><span class="event-date__month">' + esc(t.months[d.getMonth()]) + "</span></div>" +
+      "<div><h3>" + esc(field(ev, "title", lang)) + "</h3>" +
+      '<div class="event-meta">' + meta.map(function (m) { return "<span>" + m + "</span>"; }).join("") +
+      "</div>" + desc + signup + "</div></div>";
+  }
+
+  function renderEventContainer(el, events) {
+    var lang = el.getAttribute("data-lang") === "en" ? "en" : "de";
+    var mode = el.getAttribute("data-events");
+    var now = new Date();
+    var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var upcoming = events.filter(function (e) { return e._day >= today; })
+      .sort(function (a, b) { return a._day - b._day || (a.start || "").localeCompare(b.start || ""); });
+
+    if (mode === "past") {
+      var past = events.filter(function (e) { return e._day < today && e.archive !== false; })
+        .sort(function (a, b) { return b._day - a._day; })
+        .slice(0, EVENTS_PAST_LIMIT);
+      el.innerHTML = past.map(function (e) { return renderEvent(e, lang, "past"); }).join("");
+      return;
+    }
+    if (!upcoming.length) {
+      var t = EVENT_TEXT[lang];
+      el.innerHTML = '<p class="events-empty">' + esc(t.none) + '<a href="' + t.contact + '">' +
+        esc(t.noneLink) + "</a>.</p>";
+      return;
+    }
+    if (mode === "next") upcoming = upcoming.slice(0, 1);
+    el.innerHTML = upcoming.map(function (e, i) {
+      return renderEvent(e, lang, i === 0 ? "featured" : "upcoming");
+    }).join("");
+  }
+
+  function initEvents() {
+    var containers = document.querySelectorAll("[data-events][data-events-src]");
+    if (!containers.length || !window.fetch) return;
+    var src = containers[0].getAttribute("data-events-src");
+    // no-cache = revalidate with the server each time, so a freshly saved
+    // event shows up without waiting for GitHub Pages' 10-minute cache.
+    fetch(src, { cache: "no-cache" })
+      .then(function (r) {
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        return r.json();
+      })
+      .then(function (data) {
+        var events = (Array.isArray(data) ? data : []).filter(function (e) {
+          return e && (e._day = parseDay(e.date)) && field(e, "title", "de");
+        });
+        containers.forEach(function (el) { renderEventContainer(el, events); });
+      })
+      .catch(function (err) {
+        // Leave the static fallback text in place.
+        if (window.console) console.warn("Events could not be loaded:", err);
+      });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     initNav();
+    initEvents();
     initCountUp();
     initRevealGroups();
     initLuckReveal();
