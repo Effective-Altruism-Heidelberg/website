@@ -184,6 +184,9 @@ p{margin:0 0 1rem}
 .event-meta{font-size:.88rem;color:var(--ink-soft);margin:.2rem 0 .5rem;display:flex;flex-wrap:wrap;gap:.2rem .7rem}
 .event-grid{display:grid;gap:1rem}
 .event-card.is-past{opacity:.82}
+.event-stack{display:grid;gap:1rem;max-width:40rem;margin:0 auto}
+.events-empty{text-align:center;color:var(--ink-soft);max-width:36rem;margin:0 auto}
+.event-grid>.events-empty{grid-column:1/-1}
 
 /* ---------- quote ---------- */
 .quote{

@@ -11,7 +11,9 @@ index.html          language gate — redirects by browser language,
 impressum.html       German legal notice (§5 DDG) + image credits
 style.css            shared design system
 assets/              self-hosted fonts, images, logo (see "Assets" below)
-script.js             shared vanilla JS (nav, animations, interactive bits)
+script.js             shared vanilla JS (nav, animations, interactive bits, events)
+data/events.json     all events (edited via Pages CMS, see below)
+.pages.yml           Pages CMS form definition for the events
 en/                  index, what-is-ea, about, events, gallery, contact
 de/                  index, was-ist-ea, ueber-uns, veranstaltungen, galerie, kontakt
 ```
@@ -67,6 +69,31 @@ de/                  index, was-ist-ea, ueber-uns, veranstaltungen, galerie, kon
   up to date when adding images.
 - The GiveWell/GWWC/80,000 Hours/effectivealtruism.org links are external
   and need no changes for the new host.
+
+## Adding events (no code, no pull request)
+
+All events live in `data/events.json`. The events page and both home pages
+read that file in the browser (`initEvents` in `script.js`), so adding an
+event never touches any HTML:
+
+- Events whose date is today or later show as "next event" (the earliest
+  one is the big teal card; the home pages show only that one).
+- Once the day is over they move to "What we've run recently"
+  automatically — if "show in archive" is ticked. The newest 6 are shown.
+- English fields left empty fall back to the German text.
+
+**Editing via Pages CMS (recommended):**
+
+1. Go to <https://app.pagescms.org>, sign in with GitHub and install the
+   Pages CMS GitHub App for this repository (one-time, needs repo admin).
+2. Open the repo, branch `main` → "Veranstaltungen / Events". Add or edit
+   an entry and save. Pages CMS commits straight to `main`; GitHub Pages
+   is live again a minute or two later.
+3. People without a GitHub account can be invited by email as
+   collaborators (repo settings in Pages CMS).
+
+The form is defined in `.pages.yml`. Alternatively, edit
+`data/events.json` directly in the GitHub web editor — same effect.
 
 ## After changing style.css or script.js
 
