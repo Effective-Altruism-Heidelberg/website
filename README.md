@@ -14,6 +14,8 @@ assets/              self-hosted fonts, images, logo (see "Assets" below)
 script.js             shared vanilla JS (nav, animations, interactive bits, events)
 data/events.json     all events (edited via Pages CMS, see below)
 .pages.yml           Pages CMS form definition for the events
+aisafety/            Safe AI Heidelberg (standalone page + past-events/), own aisafety.css
+democracy/           Initiative for Safeguarding Democracy (standalone page)
 en/                  index, what-is-ea, about, events, gallery, contact
 de/                  index, was-ist-ea, ueber-uns, veranstaltungen, galerie, kontakt
 ```
@@ -129,7 +131,8 @@ assets/img/*.webp                                   Alte Brücke + Heidelberg ni
 assets/photos/                                      own photos, intro talk May 2023 (gallery + About)
 assets/banners/                                     past event banners, shown on the gallery page
 assets/qr/                                          Signal + WhatsApp group QR codes (contact page)
-assets/fonts/                                       Sora, Inter (OFL), Roboto Slab (Apache 2.0)
+assets/fonts/                                       Sora, Inter, Libre Baskerville, Almarai (OFL), Roboto Slab (Apache 2.0)
+assets/aisafety/                                    Safe AI Heidelberg wordmark + Alte Brücke photo (SSG / G. Bayerl)
 assets/illustrations/                               unDraw SVGs, recoloured to the site teal
 404.html                                            served by GitHub Pages for missing URLs
 ```
@@ -137,3 +140,12 @@ assets/illustrations/                               unDraw SVGs, recoloured to t
 Image sources and licences are listed under "Bildnachweise / Image credits" in
 `impressum.html`. Keep that list up to date when adding images. Photos of
 people should only go up with their consent.
+
+## Spin-off pages: /aisafety and /democracy
+
+`aisafety/` (Safe AI Heidelberg, with `aisafety/past-events/`) and `democracy/`
+(Initiative for Safeguarding Democracy) are 1:1 ports of the pages that lived at
+the same paths on the old Squarespace site, so existing links keep working
+(GitHub Pages redirects `/aisafety` to `/aisafety/`). They intentionally keep
+their own look and don't use `style.css`. Their events are edited directly in
+the HTML (`<details>` blocks), not via `data/events.json`.
