@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Initiative for Safeguarding Democracy — EA Heidelberg</title>
+<meta name="description" content="The Initiative for Safeguarding Democracy (ISD) is an independent spin-off group from EA Heidelberg, committed to defending democracy and opposing authoritarianism.">
+<link rel="canonical" href="https://www.eaheidelberg.de/democracy">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../assets/fonts/libre-baskerville-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="theme-color" content="#0388a0">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="EA Heidelberg">
+<meta property="og:title" content="Initiative for Safeguarding Democracy">
+<meta property="og:description" content="An independent spin-off group from EA Heidelberg.">
+<style>
+@font-face { font-family: "Libre Baskerville"; font-weight: 400; font-display: swap;
+  src: url("../assets/fonts/libre-baskerville-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Libre Baskerville"; font-weight: 700; font-display: swap;
+  src: url("../assets/fonts/libre-baskerville-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Almarai"; font-weight: 400; font-display: swap;
+  src: url("../assets/fonts/almarai-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Almarai"; font-weight: 700; font-display: swap;
+  src: url("../assets/fonts/almarai-latin-700-normal.woff2") format("woff2"); }
+:root {
+  --teal: #0388a0;
+  --white: #fff;
+  --serif: "Libre Baskerville", Georgia, "Times New Roman", serif;
+  --sans: "Almarai", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; font-family: var(--sans); font-size: 15px; line-height: 1.75; color: var(--teal); background: var(--white); }
+a { color: inherit; }
+.wrap { max-width: 1280px; margin: 0 auto; padding: 0 4%; }
+
+/* Header + hero */
+.isd-top { background: var(--teal); color: var(--white); position: relative; padding-bottom: 5rem; }
+.isd-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .5rem 2rem; padding-top: 1.2rem; padding-bottom: 1.2rem; }
+.isd-brand { font-family: var(--serif); font-size: 1.15rem; text-decoration: none; }
+.isd-nav { display: flex; gap: 1.2rem; font-size: .85rem; }
+.isd-nav a { text-decoration: none; }
+.isd-nav a:hover, .isd-brand:hover { text-decoration: underline; }
+.isd-hero { text-align: center; padding-top: 1.5rem; }
+.isd-hero h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(2rem, 5vw, 3.6rem); line-height: 1.2; margin: 0 0 .8rem; }
+.isd-hero .dash { font-family: var(--serif); font-size: 1.6rem; margin: 0; }
+.isd-hero .sub { font-family: var(--serif); font-size: clamp(1rem, 1.6vw, 1.15rem); margin: .8rem 0 2.5rem; }
+.isd-subnav { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; font-size: .8rem; font-weight: 700; }
+.isd-subnav a { text-decoration: none; }
+.isd-subnav a:hover { text-decoration: underline; }
+.isd-wave { position: absolute; left: 0; right: 0; bottom: -1px; width: 100%; height: 60px; display: block; }
+
+/* Content */
+.isd-block { padding: 4.5rem 0 2rem; scroll-margin-top: 1rem; }
+.isd-block > .wrap > h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(1.7rem, 3vw, 2.4rem); text-align: center; margin: 0 0 4rem; }
+.isd-row { display: grid; grid-template-columns: 1fr 1.6fr; gap: 1rem 4rem; margin-bottom: 4.5rem; text-align: justify; }
+.isd-row h3 { font-family: var(--serif); font-weight: 700; font-size: 1.2rem; line-height: 1.4; margin: 0; text-align: left; }
+.isd-row p { margin: 0 0 1em; }
+.isd-row strong { font-weight: 700; }
+.isd-dots { display: block; width: 100%; height: 60px; }
+
+.isd-foot { position: relative; background: var(--teal); color: var(--white); margin-top: 4rem; padding: 2.5rem 0 3rem; }
+.isd-foot .isd-wave { top: -59px; bottom: auto; }
+.isd-foot .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem 3rem; flex-wrap: wrap; }
+.isd-foot p { font-family: var(--serif); font-size: clamp(1.1rem, 2vw, 1.45rem); line-height: 1.3; margin: 0; max-width: 34rem; }
+.isd-btn { display: inline-block; background: var(--white); color: var(--teal); font-weight: 700; font-size: .8rem; text-decoration: none; padding: .9rem 1.2rem; border-radius: 6px; margin-right: 6%; }
+.isd-btn:hover { opacity: .9; }
+
+@media (max-width: 760px) {
+  .isd-row { grid-template-columns: 1fr; text-align: left; margin-bottom: 3rem; }
+  .isd-subnav { grid-template-columns: repeat(2, 1fr); }
+  .isd-btn { margin-right: 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="isd-top">
+  <header class="wrap isd-header">
+    <a class="isd-brand" href="../index.html">Effective Altruism Heidelberg</a>
+    <nav class="isd-nav" aria-label="EA Heidelberg">
+      <a href="../en/events.html">Events</a>
+      <a href="../en/about.html">About Us</a>
+      <a href="../en/contact.html">Contact</a>
+    </nav>
+  </header>
+  <div class="wrap isd-hero">
+    <h1>Initiative for Safeguarding Democracy</h1>
+    <p class="dash">—</p>
+    <p class="sub">An independent spin-off group from EA Heidelberg</p>
+    <nav class="isd-subnav" aria-label="On this page">
+      <a href="#about">About Us</a>
+      <a href="#contact">Contact</a>
+      <a href="#mission">Mission Statement</a>
+      <a href="https://forum.effectivealtruism.org/users/initiative-for-safeguarding-democracy" target="_blank" rel="noopener">Our Public Writing</a>
+    </nav>
+  </div>
+  <svg class="isd-wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 20C260 50 520 60 800 45S1240 0 1440 25V60H0Z" fill="#fff"/></svg>
+</div>
+
+<main>
+  <section class="isd-block" id="about">
+    <div class="wrap">
+      <h2>About Us</h2>
+      <div class="isd-row">
+        <h3>Democracy is under threat.</h3>
+        <div><p>Across the world, authoritarian movements are on the rise. From the AfD in Germany, to Trump in the U.S., Orbán in Hungary, Erdoğan in Turkey, and Modi in India, we are witnessing a global trend of democratic backsliding, the erosion of the rule of law, and increasing restrictions on civil liberties. Democracy is more than just a political system; it is the foundation of a good life. That’s why we must stand together to protect it.</p></div>
+      </div>
+      <div class="isd-row">
+        <h3>We have founded ISD</h3>
+        <div><p>to bring together activists and interested people who are committed to defending democracy and opposing authoritarianism – in Germany, the EU, and around the world. Our goal is to educate, learn together, raise awareness, and support one another in taking concrete actions to protect democracy. To achieve this, we have set up a chat group and hold monthly meetings.</p></div>
+      </div>
+      <div class="isd-row" id="contact" style="scroll-margin-top:1rem">
+        <h3>Would you like to get involved?</h3>
+        <div>
+          <p>If so, please email us at:</p>
+          <p><a href="mailto:safeguarding-democracy@protonmail.com">safeguarding-democracy@protonmail.com</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <svg class="isd-dots" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40C200 15 380 -5 560 15S900 60 1100 45 1440 20 1440 20" fill="none" stroke="#0388a0" stroke-width="6" stroke-linecap="round" stroke-dasharray="0 18" vector-effect="non-scaling-stroke"/></svg>
+
+  <section class="isd-block" id="mission">
+    <div class="wrap">
+      <h2>Our Mission Statement</h2>
+      <div class="isd-row">
+        <h3>Our Common Purpose</h3>
+        <div>
+          <p>No democracy is perfect, and yet the liberal democracy that we have enjoyed has contributed greatly to peace, prosperity and the increase of civil rights. Despite its successes and maybe because of them, liberal democracy has come under assault, both from within and from without.</p>
+          <p><strong>We are a group of people who share the common goal to protect, preserve, and promote liberal democracy.</strong></p>
+          <p>To this end, we are dedicated to <strong>activating, mobilizing, connecting, and educating</strong> activists and individuals committed to defending liberal democracy.</p>
+        </div>
+      </div>
+      <div class="isd-row">
+        <h3>Our Political Values</h3>
+        <div>
+          <p>In this context, a <strong>democracy</strong> is a political system in which those who govern are elected by the people in free and fair multiparty elections.</p>
+          <p>A <strong>liberal democracy</strong> also guarantees the rule of law, separation of powers, and individual rights.</p>
+          <p>As liberal democrats, we believe in the equality of all people regardless of their identity. We <strong>condemn discrimination</strong> on the basis of race, gender, religion, disability, sexual orientation, gender identity and other identity features.</p>
+          <p>Since we value <strong>pluralism of opinion</strong>, people of every political orientation are welcome, as long as they are committed to our shared goal to safeguard democracy.</p>
+          <p>Apart from this, <strong>we pursue no other political agenda.</strong></p>
+        </div>
+      </div>
+      <div class="isd-row">
+        <h3>Our Approach To Dialogue</h3>
+        <div>
+          <p>We do not view political disagreements as a problem to be solved, but as an epistemic strength and inherent feature of democracy.</p>
+          <p>In this light, we consider <strong>respectful debate</strong> to be a cornerstone of informed decision-making and problem-solving. It is through the sharing of different perspectives that we can create a stronger, more resilient democracy.</p>
+          <p>We embrace the <strong>Scout Mindset</strong>, which encourages us to approach differing views with the goal of understanding and learning rather than merely defending our own. We acknowledge that our own beliefs may evolve in response to new information, and we remain open to revising our views in pursuit of truth.</p>
+          <p>While we recognize that emotionalization may sometimes be necessary in democratic politics, we reject it in our internal exchanges. We hold ourselves accountable to the <strong>values of openness, curiosity, and humility</strong>, and strive to foster an environment where every voice is heard, valued, and respected.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="isd-foot">
+  <svg class="isd-wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 15C300 50 620 55 900 35S1260 5 1440 30V60H0Z" fill="#0388a0"/></svg>
+  <div class="wrap">
+    <p>Also take a look at the EA Forum for our previous published works:</p>
+    <a class="isd-btn" href="https://forum.effectivealtruism.org/users/initiative-for-safeguarding-democracy" target="_blank" rel="noopener">ISD @ EA Forum</a>
+  </div>
+</footer>
+
+</body>
+</html>
