@@ -245,9 +245,10 @@
       days: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"],
       date: function (d) { return pad(d.getDate()) + "." + pad(d.getMonth() + 1) + "." + d.getFullYear(); },
       signup: "Kurz anmelden (optional) →",
-      none: "Gerade ist kein neuer Termin eingetragen. Die nächsten Termine kündigen wir " +
-        "in unserer Signal- und WhatsApp-Gruppe an — ",
-      noneLink: "hier kommst du rein",
+      noneTitle: "Der nächste Termin steht noch nicht fest",
+      none: "Neue Termine kündigen wir zuerst in unserer Signal- und WhatsApp-Gruppe an. " +
+        "Tritt bei, dann verpasst du nichts.",
+      noneLink: "Zur Gruppe →",
       contact: "kontakt.html"
     },
     en: {
@@ -255,14 +256,17 @@
       days: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
       date: function (d) { return d.getDate() + " " + EVENT_TEXT.en.months[d.getMonth()] + " " + d.getFullYear(); },
       signup: "Quick sign-up (optional) →",
-      none: "No new date is listed right now. We announce upcoming events in our Signal " +
-        "and WhatsApp groups — ",
-      noneLink: "here's how to join",
+      noneTitle: "The next date isn't set yet",
+      none: "We announce new events first in our Signal and WhatsApp groups. " +
+        "Join so you don't miss the next one.",
+      noneLink: "Join the group →",
       contact: "contact.html"
     }
   };
   var ICON_CAL = '<svg class="meta-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v3"/><path d="M16 2v3"/><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>';
   var ICON_PIN = '<svg class="meta-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>';
+
+  var ICON_CAL_LG = '<span class="events-none__icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/><path d="M12 14v4"/><path d="M10 16h4"/></svg></span>';
 
   function pad(n) { return (n < 10 ? "0" : "") + n; }
 
@@ -335,8 +339,9 @@
     }
     if (!upcoming.length) {
       var t = EVENT_TEXT[lang];
-      el.innerHTML = '<p class="events-empty">' + esc(t.none) + '<a href="' + t.contact + '">' +
-        esc(t.noneLink) + "</a>.</p>";
+      el.innerHTML = '<div class="events-none">' + ICON_CAL_LG +
+        "<h3>" + esc(t.noneTitle) + "</h3><p>" + esc(t.none) + "</p>" +
+        '<a class="btn btn--primary" href="' + t.contact + '">' + esc(t.noneLink) + "</a></div>";
       return;
     }
     if (mode === "next") upcoming = upcoming.slice(0, 1);
